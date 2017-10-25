@@ -3,6 +3,44 @@ var Article = require('./../models/Article.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
+exports.edit = function(req,res){
+  res.render('./../public/views/article/edit.js',{
+    user: req.user || null,
+    request: req
+  });
+};
+
+exports.view = function(req, res){
+  res.render('./../public/views/article/view.js',{
+    user: req.user || null,
+    request: req
+  });
+};
+exports.all = function(req, res){
+  Article.find(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      console.log("api called");
+
+      res.render('./../public/views/article/all.js',{
+      user: req.user || null,
+      request: req,
+      articles: data
+  });
+    }
+  });
+  
+};
+exports.new = function(req, res){
+  res.render('./../public/views/article/create.js',{
+    user: req.user || null,
+    request: req
+  });
+};
 module.exports.list = function(req, res) {
   Article.find(function(err, data) {
     if (err) {
