@@ -15,6 +15,7 @@ module.exports = function(app){
  app.route('/articles/edit/:articleId')
     .get(articles.edit);   
  app.route('/api/articles')
+ 
 	.get(articles.list)
 	.post(users.requiresLogin, articles.create);
 

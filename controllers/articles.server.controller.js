@@ -4,14 +4,14 @@ var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
 exports.edit = function(req,res){
-  res.render('./../public/views/article/edit.js',{
+  res.render('./../public/views/article/edit.ejs',{
     user: req.user || null,
     request: req
   });
 };
 
 exports.view = function(req, res){
-  res.render('./../public/views/article/view.js',{
+  res.render('./../public/views/article/view.ejs',{
     user: req.user || null,
     request: req
   });
@@ -26,7 +26,7 @@ exports.all = function(req, res){
     } else {
       console.log("api called");
 
-      res.render('./../public/views/article/all.js',{
+      res.render('./../public/views/article/all.ejs',{
       user: req.user || null,
       request: req,
       articles: data
@@ -36,7 +36,7 @@ exports.all = function(req, res){
   
 };
 exports.new = function(req, res){
-  res.render('./../public/views/article/create.js',{
+  res.render('./../public/views/article/create.ejs',{
     user: req.user || null,
     request: req
   });
