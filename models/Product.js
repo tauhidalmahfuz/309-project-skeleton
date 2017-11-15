@@ -7,21 +7,21 @@ var ProductSchema = {
     type: String,
     default: '',
     trim: true,
-    required: 'Title required'
+    required: 'name required'
   },
 
   description: {
     type: String,
     default: '',
     trim: true,
-    required: 'Content required'
+    required: 'description required'
 
   },
   price: {
     type: Number,
-    default: '',
+    //default: '',
     trim: true,
-    required: 'Title required'
+    required: 'price required'
   },
 
   quantity: {

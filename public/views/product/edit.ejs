@@ -29,7 +29,8 @@
                 product.description = $("#description").val();
             });
             $("#price").change(function(){
-                product.price = $("#price").val();
+                
+               product.price = $("#price").val();
             });
             $("#quantity").change(function(){
                 product.quantity = $("#quantity").val();
@@ -42,6 +43,10 @@
                     data: product
                 }).done(function(response){
                     console.log(response);
+                    window.location.replace("/product/"+response._id);
+                }).fail(function(response){
+                    $("#error").text(JSON.parse(response.responseText).message);
+                    console.log(JSON.parse(response.responseText).message);
                 });
             });
         </script>
